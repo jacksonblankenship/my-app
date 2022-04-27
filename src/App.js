@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
+import Header from "./components/Header";
+import Search from "./components/Search";
+import Joke from "./components/Joke";
+
+import "./App.css";
+
+const App = () => {
+  const [searchValue, setSearchValue] = useState("");
+  const [joke, setJoke] = useState();
+
+  useEffect(() => {
+    fetch(`https://v2.jokeapi.dev/joke/Any?contains=${searchValue}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setJoke({
+          setup: data.setup,
+          delivery: data.delivery,
+        });
+      });
+  }, [searchValue]);
+
+  const onSearchChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Search searchValue={searchValue} onChange={onSearchChange} />
+      {searchValue && joke && <Joke joke={joke} />}
     </div>
   );
-}
+};
 
 export default App;

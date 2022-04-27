@@ -1,0 +1,21 @@
+.Header {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.heading {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 125%;
+}
+
+.subheading {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 125%;
+
+  margin-bottom: 100px;
+}
