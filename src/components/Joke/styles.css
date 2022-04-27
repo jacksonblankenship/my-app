@@ -1,9 +1,8 @@
 .joke {
-  text-align: center;
-
   font-weight: 700;
   font-size: 30px;
   line-height: 125%;
+  text-align: center;
 }
 
 .joke-setup {

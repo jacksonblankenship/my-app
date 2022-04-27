@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import Header from "./components/Header";
-import Search from "./components/Search";
-import Joke from "./components/Joke";
+import Header from './components/Header';
+import Joke from './components/Joke';
+import Search from './components/Search';
 
-import "./App.css";
+import './App.css';
 
 const App = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
   const [joke, setJoke] = useState();
 
   useEffect(() => {
     fetch(`https://v2.jokeapi.dev/joke/Any?contains=${searchValue}`)
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setJoke({
           setup: data.setup,
           delivery: data.delivery,
@@ -21,7 +21,7 @@ const App = () => {
       });
   }, [searchValue]);
 
-  const onSearchChange = (e) => {
+  const onSearchChange = e => {
     setSearchValue(e.target.value);
   };
 

@@ -13,9 +13,9 @@
 }
 
 .subheading {
+  margin-bottom: 100px;
+
   font-weight: 700;
   font-size: 30px;
   line-height: 125%;
-
-  margin-bottom: 100px;
 }

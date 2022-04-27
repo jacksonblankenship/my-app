@@ -1,0 +1,15 @@
+{
+  "bracketSpacing": true,
+  "bracketSameLine": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "avoid",
+  "overrides": [
+    {
+      "files": ["**/*.css", "**/*.scss", "**/*.less", "**/*.html"],
+      "options": {
+        "singleQuote": false
+      }
+    }
+  ]
+}

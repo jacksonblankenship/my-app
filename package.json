@@ -11,6 +11,15 @@
     "react-scripts": "5.0.0",
     "web-vitals": "^2.1.4"
   },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "prettier": "^2.6.2",
+    "stylelint": "^14.8.0",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^25.0.0",
+    "stylelint-order": "^5.0.0"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -20,8 +29,53 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "prettier"
+    ],
+    "plugins": [
+      "unused-imports"
+    ],
+    "rules": {
+      "unused-imports/no-unused-imports": "error",
+      "react/jsx-sort-props": [
+        "warn",
+        {
+          "callbacksLast": true,
+          "shorthandFirst": false,
+          "shorthandLast": true,
+          "ignoreCase": true,
+          "noSortAlphabetically": false
+        }
+      ],
+      "import/order": [
+        "warn",
+        {
+          "newlines-between": "always",
+          "warnOnUnassignedImports": true,
+          "alphabetize": {
+            "order": "asc"
+          },
+          "groups": [
+            "builtin",
+            "external",
+            "internal",
+            "parent",
+            "sibling",
+            "index"
+          ],
+          "pathGroups": [
+            {
+              "pattern": "{.,..}/**/*.css",
+              "group": "object",
+              "position": "after"
+            },
+            {
+              "pattern": "@/**/*",
+              "group": "internal"
+            }
+          ]
+        }
+      ]
+    }
   },
   "browserslist": {
     "production": [

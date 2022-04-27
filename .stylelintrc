@@ -1,0 +1,15 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-rational-order"],
+  "rules": {
+    "selector-class-pattern": null,
+    "declaration-empty-line-before": null,
+    "declaration-colon-newline-after": null,
+    "no-descending-specificity": null,
+    "plugin/rational-order": [
+      true,
+      {
+        "empty-line-between-groups": true
+      }
+    ]
+  }
+}
